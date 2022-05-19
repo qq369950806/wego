@@ -24,17 +24,11 @@
         let provinceId = $("#provinceSelect").val();
         //AJAX请求，获取指定省下所有的城市
         $.get("${request.contextPath}/city/getCityByProvinceId/"+provinceId,function(res) {
-            console.info("***")
-            console.info(res)
-            for (let i = 0; i < res.size(); i++) {
-                console.info(res[i])
+            $("#citySelect").empty();
+            for (let i in res) {
+                $("#citySelect").append("<option value= '"+res[i].id+"'>"+res[i].name+"</option>");
             }
         });
-
-
-
-
-        $("#citySelect").append("<option>haha</option>");
     })
 </script>
 </body>
