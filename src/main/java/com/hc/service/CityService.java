@@ -1,6 +1,10 @@
 package com.hc.service;
 
 import com.hc.domain.City;
+import com.hc.domain.vo.CityVO;
+
+import java.util.List;
+
 public interface CityService{
 
 
@@ -16,4 +20,10 @@ public interface CityService{
 
     int updateByPrimaryKey(City record);
 
+    /**
+     * 查找指定省份下的城市
+     * @param provinceId
+     * @return
+     */
+    List<CityVO> selectByProvinceId(Integer provinceId);
 }

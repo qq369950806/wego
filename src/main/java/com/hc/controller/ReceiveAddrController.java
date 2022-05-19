@@ -56,6 +56,7 @@ public class ReceiveAddrController {
     public ModelAndView openAddPage(ModelAndView mav) {
         List<Province> provinceList = provinceService.selectList();
         List<ProvinceVO> provinceVOList = ProvinceTrans.mapper.provinceList2provinceVOList(provinceList);
+        provinceVOList.add(0,new ProvinceVO(-1,"请选择省份"));
         mav.addObject("provinceVOList", provinceVOList);
         mav.setViewName("receiveAddr_add");
         return mav;

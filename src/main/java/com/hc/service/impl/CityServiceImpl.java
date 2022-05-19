@@ -1,10 +1,15 @@
 package com.hc.service.impl;
 
-import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
 import com.hc.domain.City;
+import com.hc.domain.vo.CityVO;
 import com.hc.mapper.CityMapper;
 import com.hc.service.CityService;
+import com.hc.translate.CityTrans;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
+
 @Service
 public class CityServiceImpl implements CityService{
 
@@ -39,6 +44,13 @@ public class CityServiceImpl implements CityService{
     @Override
     public int updateByPrimaryKey(City record) {
         return cityMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<CityVO> selectByProvinceId(Integer provinceId) {
+        List<City> cityList = cityMapper.selectByProvinceId(provinceId);
+        List<CityVO> cityVOList = CityTrans.mapper.provinceList2provinceVOList(cityList);
+        return cityVOList;
     }
 
 }
