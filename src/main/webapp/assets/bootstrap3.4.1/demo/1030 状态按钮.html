@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Bootstrap入门</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <button class="btn btn-success" data-toggle="button">状态按钮</button>
+        <button class="btn btn-default" id="button123">按钮</button>
+    </div>
+</div>
+<script src="../js/jquery3.6.0.js"></script>
+<script type="text/javascript">
+    $('#button123').on('click',function () {
+        $(this).button('toggle');
+    });
+</script>
+</body>
+</html>
+
+
+
+

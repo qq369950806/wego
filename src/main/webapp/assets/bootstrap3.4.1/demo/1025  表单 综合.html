@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Bootstrap入门</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+</head>
+<body>
+<div class="container">
+    <h1>新用户注册</h1>
+    <div class="row">
+        <form role="form">
+            <div class="form-group">
+                <label>用户名</label>
+                <input class="form-control"/>
+                <p class="help-block">请输入1-6位用户名，只能为数字或字母，区分大小写</p>
+            </div>
+            <div class="form-group">
+                <label>真实姓名</label>
+                <input class="form-control" placeholder="请输入真实姓名"/>
+            </div>
+            <div class="form-group input-group">
+                <input class="form-control" placeholder="电子邮箱地址"/>
+                <span class="input-group-addon">@</span>
+                <select class="form-control">
+                    <option selected>163.com</option>
+                    <option>qq.com</option>
+                    <option>sina.com.cn</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>性别</label>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                        男
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                        女
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>性别（内联样式）</label>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="optionsRadios1" id="optionsRadios3" value="option1" checked>
+                        男
+                    </label>
+                </div>
+                <div class="radio-inline">
+                    <label>
+                        <input type="radio" name="optionsRadios1" id="optionsRadios4" value="option2">
+                        女
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>爱好</label>
+                <label class="checkbox-inline">
+                    <input type="checkbox"> 篮球
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox"> 排球
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox"> 足球
+                </label>
+            </div>
+            <div class="form-group">
+                <label>自我介绍</label>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" rows="6" placeholder="自我介绍不超过50字"></textarea>
+            </div>
+            <button type="submit" class="btn btn-default">提交</button>
+            <button type="reset" class="btn btn-default">重填</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+

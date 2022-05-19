@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Bootstrap入门</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="nav nav-tabs">
+                <li class="active" ><a href="#home" data-toggle="tab">主页</a></li>
+                <li ><a href="#info" data-toggle="tab">个人信息</a></li>
+                <li ><a href="#message" data-toggle="tab">好友消息</a></li>
+            </ul>
+        </div>
+        <div class="tab-content"  id="mytab">
+            <div class="tab-pane fade in active" id="home">
+                <h1 align="center">主页</h1>
+            </div>
+            <div class="tab-pane fade" id="info">
+                <h1 align="center">个人信息</h1>
+            </div>
+            <div class="tab-pane fade" id="message">   <h1 align="center">好友消息</h1></div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6" >
+            <div id="ex">我非常喜欢吃<a href="#" data-toggle="tooltip" data-placement="top" title="一种水果">橘子</a> 。</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6" >
+            <div id="ex2">我非常喜欢吃<a href="#" data-toggle="popover" data-placement="right" title="一种水果">苹果</a> 。</div>
+        </div>
+    </div>
+</div>
+<!--    如果要使用bootstrap的js插件，必须先引用JQuery-->
+<script src="../js/jquery3.6.0.js"></script>
+<script src="../js/bootstrap.js"></script>
+<!--<script type="text/JavaScript">-->
+<!--    $(function () { $("[data-toggle='tooltip']").tooltip(); });-->
+<!--    $(function () { $("[data-toggle='popover']").popover(); });-->
+<!--</script>-->
+</body>
+</html>
+
+
+
+

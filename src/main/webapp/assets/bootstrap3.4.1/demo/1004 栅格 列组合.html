@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Bootstrap入门</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <style>
+        .yangshi {
+            height: 50px;
+            background-color: #5BC0DE;
+            border: 1px solid #AC2925;
+        }
+    </style>
+</head>
+<body>
+
+<h2>列组合</h2>
+列组合：根据数字来合并列（原则：列总和数不能超过12，大于12，则自动换到下一行）
+<div class="container">
+    <div class="row yangshi">一个响应行</div>
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 yangshi">只有一列的响应式行</div>
+    </div>
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-1 yangshi">12列的响应式行1</div>
+        <div class="col-md-1 yangshi">12列的响应式行2</div>
+        <div class="col-md-1 yangshi">12列的响应式行3</div>
+        <div class="col-md-1 yangshi">12列的响应式行4</div>
+        <div class="col-md-1 yangshi">12列的响应式行5</div>
+        <div class="col-md-1 yangshi">12列的响应式行6</div>
+        <div class="col-md-1 yangshi">12列的响应式行7</div>
+        <div class="col-md-1 yangshi">12列的响应式行8</div>
+        <div class="col-md-1 yangshi">12列的响应式行9</div>
+        <div class="col-md-1 yangshi">12列的响应式行10</div>
+        <div class="col-md-1 yangshi">12列的响应式行11</div>
+        <div class="col-md-1 yangshi">12列的响应式行12</div>
+    </div>
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 yangshi">占9列</div>
+        <div class="col-md-3 yangshi">占3列</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 yangshi">占4列 </div>
+        <div class="col-md-4 yangshi">占4列 </div>
+        <div class="col-md-4 yangshi">占4列 </div>
+    </div>
+</div>
+
+</body>
+</html>

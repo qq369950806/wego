@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!-- 配置SpringMVC核心控制器：DispatcherServlet主要负责流程的控制。-->
+    <servlet>
+        <servlet-name>SpringMVCDispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:applicationContext.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+        <async-supported>true</async-supported>
+        <!--SpringMVC整合Servlet3文件上传-->
+        <multipart-config>
+            <!-- <location>/</location> -->
+            <max-file-size>5242880</max-file-size>	<!--单个文件最大大小：5MB-->
+            <max-request-size>20971520</max-request-size>	<!--所有文件最大大小：20MB-->
+            <file-size-threshold>0</file-size-threshold>	<!-- 超过这个大小直接存硬盘，而不是内存 -->
+        </multipart-config>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SpringMVCDispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <!--中文乱码处理CharacterEncodingFilter-->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+</web-app>

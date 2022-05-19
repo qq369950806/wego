@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Bootstrap入门</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div id="myCarousel" class="carousel slide" style="width: 300px" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active"><img src="img/mm01.jpg" alt="firt"></div>
+                <div class="item"><img src="img/mm02.jpg" alt="second"></div>
+                <div class="item"><img src="img/mm03.jpg" alt="third"></div>
+                <div class="item"><img src="img/mm04.jpg" alt="third"></div>
+            </div>
+            <a href="#myCarousel" data-slide="prev" class="carousel-control left">&lsaquo;</a>
+            <a href="#myCarousel" data-slide="next" class="carousel-control right">&rsaquo;</a>
+        </div>
+    </div>
+</div>
+<!--    如果要使用bootstrap的js插件，必须先引用JQuery-->
+<script src="../js/jquery3.6.0.js"></script>
+<script src="../js/bootstrap.js"></script>
+</body>
+</html>
+
+
+
+

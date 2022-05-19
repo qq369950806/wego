@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hc.mapper.ProvinceMapper">
+    <resultMap id="BaseResultMap" type="com.hc.domain.Province">
+        <!--@mbg.generated-->
+        <!--@Table tb_province-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="area" jdbcType="VARCHAR" property="area"/>
+        <result column="priority" jdbcType="TINYINT" property="priority"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, `name`, area, priority, `status`
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from tb_province
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete
+        from tb_province
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hc.domain.Province" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into tb_province (`name`, area, priority,
+                                 `status`)
+        values (#{name,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{priority,jdbcType=TINYINT},
+                #{status,jdbcType=TINYINT})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hc.domain.Province"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into tb_province
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="area != null">
+                area,
+            </if>
+            <if test="priority != null">
+                priority,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="area != null">
+                #{area,jdbcType=VARCHAR},
+            </if>
+            <if test="priority != null">
+                #{priority,jdbcType=TINYINT},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.hc.domain.Province">
+        <!--@mbg.generated-->
+        update tb_province
+        <set>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="area != null">
+                area = #{area,jdbcType=VARCHAR},
+            </if>
+            <if test="priority != null">
+                priority = #{priority,jdbcType=TINYINT},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=TINYINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.hc.domain.Province">
+        <!--@mbg.generated-->
+        update tb_province
+        set `name`   = #{name,jdbcType=VARCHAR},
+            area     = #{area,jdbcType=VARCHAR},
+            priority = #{priority,jdbcType=TINYINT},
+            `status` = #{status,jdbcType=TINYINT}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_province
+        where status =1
+        order by priority desc , id desc
+    </select>
+</mapper>

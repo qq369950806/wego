@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hc.mapper.ReceiveAddrMapper">
+  <resultMap id="BaseResultMap" type="com.hc.domain.ReceiveAddr">
+    <!--@mbg.generated-->
+    <!--@Table tb_receive_addr-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="receiver" jdbcType="VARCHAR" property="receiver" />
+    <result column="country_id" jdbcType="INTEGER" property="countryId" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="postcode" jdbcType="VARCHAR" property="postcode" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="times" jdbcType="BIGINT" property="times" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, receiver, country_id, addr, postcode, tel, user_id, create_time, update_time, times
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from tb_receive_addr
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from tb_receive_addr
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hc.domain.ReceiveAddr" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_receive_addr (receiver, country_id, addr, 
+      postcode, tel, user_id, 
+      create_time, times
+      )
+    values (#{receiver,jdbcType=VARCHAR}, #{countryId,jdbcType=INTEGER}, #{addr,jdbcType=VARCHAR}, 
+      #{postcode,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, 
+      now(), #{times,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hc.domain.ReceiveAddr" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_receive_addr
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="receiver != null">
+        receiver,
+      </if>
+      <if test="countryId != null">
+        country_id,
+      </if>
+      <if test="addr != null">
+        addr,
+      </if>
+      <if test="postcode != null">
+        postcode,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="times != null">
+        times,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="receiver != null">
+        #{receiver,jdbcType=VARCHAR},
+      </if>
+      <if test="countryId != null">
+        #{countryId,jdbcType=INTEGER},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null">
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="times != null">
+        #{times,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hc.domain.ReceiveAddr">
+    <!--@mbg.generated-->
+    update tb_receive_addr
+    <set>
+      <if test="receiver != null">
+        receiver = #{receiver,jdbcType=VARCHAR},
+      </if>
+      <if test="countryId != null">
+        country_id = #{countryId,jdbcType=INTEGER},
+      </if>
+      <if test="addr != null">
+        addr = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null">
+        postcode = #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="times != null">
+        times = #{times,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hc.domain.ReceiveAddr">
+    <!--@mbg.generated-->
+    update tb_receive_addr
+    set receiver = #{receiver,jdbcType=VARCHAR},
+      country_id = #{countryId,jdbcType=INTEGER},
+      addr = #{addr,jdbcType=VARCHAR},
+      postcode = #{postcode,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      times = #{times,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="long">
+    SELECT *
+    from tb_receive_addr
+    where user_id=#{userId,jdbcType=BIGINT}
+    order by times desc
+    </select>
+</mapper>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Bootstrap入门</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+    <style>
+        .yangshi {
+            height: 50px;
+            background-color: #5BC0DE;
+            border: 1px solid #AC2925;
+        }
+    </style>
+</head>
+<body>
+
+<h2>列排序</h2>
+列排序其实是改变列的方向，就是改变左右浮动，并且设置浮动的距离。
+col-md-push-*：往后移动
+col-md-pull-*：往前移动
+偏移的时候，如果被偏移的列后面还有别的列，那么后面的列也会跟着偏移
+如果浮动到的位置已经存在列，那么新浮动过来的列就会被原来的列覆盖
+<div class="container">
+    <div class="row">
+        <div class="col-md-4  col-md-push-6" style="background-color: red;height: 50px;">第一个栅格</div>
+        <div class="col-md-4" style="background-color: green;height: 50px;">第二个栅格</div>
+        <div class="col-md-2  col-md-pull-3"style="background-color: blue;height: 50px;">第二个栅格</div>
+    </div>
+</div>
+<!--下面栅格参照用-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-1 yangshi">列1</div>
+        <div class="col-md-1 yangshi">列2</div>
+        <div class="col-md-1 yangshi">列3</div>
+        <div class="col-md-1 yangshi">列4</div>
+        <div class="col-md-1 yangshi">列5</div>
+        <div class="col-md-1 yangshi">列6</div>
+        <div class="col-md-1 yangshi">列7</div>
+        <div class="col-md-1 yangshi">列8</div>
+        <div class="col-md-1 yangshi">列9</div>
+        <div class="col-md-1 yangshi">列10</div>
+        <div class="col-md-1 yangshi">列11</div>
+        <div class="col-md-1 yangshi">列12</div>
+    </div>
+</div>
+
+</body>
+</html>

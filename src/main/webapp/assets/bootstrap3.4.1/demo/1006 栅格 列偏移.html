@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Bootstrap入门</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <style>
+        .yangshi {
+            height: 50px;
+            background-color: #5BC0DE;
+            border: 1px solid #AC2925;
+        }
+    </style>
+</head>
+<body>
+
+<h2>列偏移</h2>
+将来将不希望紧靠在一起的两个列分开，如果不想使用margin，就可以使用列偏移。
+使用列偏移，只需要在元素上添加col-md-offset-*，那么具有这个类名的列就会向右偏移。其中，*代表要偏移的列组合数。
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 yangshi">占8列</div>
+        <div class="col-md-3 yangshi col-md-offset-1">占3列</div>
+    </div>
+</div>
+
+</body>
+</html>

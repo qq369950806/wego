@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省份列表</title>
+</head>
+<body>
+<form id="pform">
+    姓名：<input type="text" name="name" value="hecai"> <br>
+    生日：<input type="text" name="birth" value="1999-09-21"> <br>
+    性别：<input type="radio" name="gender" value="1">男
+    <input type="radio" name="gender" value="2" checked>女 <br>
+    爱好：<input type="checkbox" name="favorite" value="run" checked>跑
+    <input type="checkbox" name="favorite" value="swim">游
+    <input type="checkbox" name="favorite" value="play" checked>打
+    <input type="checkbox" name="favorite" value="kick" checked> 踢<br>
+    <button id="btn">提交</button>
+</form>
+
+<!--Jquery操作Cookie-->
+<!--cookie：保存在客户端的一段文本-->
+<script src="jquery3.6.0.js"></script>
+<script src="jquery.cookie.js"></script>
+<script>
+    $("#btn").click(function () {
+        //获取字符串形式的参数
+        let a = $("#pform").serialize();
+        console.info(a)
+        //获取数组形式的参数
+        let b = $("#pform").serializeArray();
+        //JSON对象
+        console.info(b)
+        //序列化为JSON字符串
+        console.info(JSON.stringify(b))
+        //序列化为键值对
+        console.info($.param(b))
+    });
+
+    // $(function () {
+    //     // 添加一个cookie，
+    //     $.cookie("query1", "name=henan&area=huadong");
+    //     //添加一个cookie指定有效期
+    //     $.cookie("query2", "name=henan&area=huadong", {expires: 3});
+    //     //添加一个cookie指定有效期并设置cookie的有效域名
+    //     $.cookie("query3", "name=henan&area=huadong", {expires: 5, domain: "www.wego.com"});
+    //     //添加一个cookie指定有效期并设置cookie的有效路径
+    //     $.cookie("query4", "name=henan&area=huadong", {expires: 5, path: '/'});
+    //     //读取cookie，存在返回值，不存在返回null
+    //     let sth = $.cookie("query4");
+    //     console.info(sth)
+    //     //修改cookie,修改cookie的值
+    //     $.cookie("query4", "hahaxixi")
+    //     sth = $.cookie("query4");
+    //     console.info(sth)
+    //     //删除cookie
+    //     $.cookie("query4", null)
+    //     sth = $.cookie("query4");
+    //     console.info(sth)
+    // });
+</script>
+</body>
+</html>
