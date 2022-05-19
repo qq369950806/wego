@@ -1,11 +1,16 @@
 package com.hc.service.impl;
 
-import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
 import com.hc.domain.Country;
+import com.hc.domain.vo.CountryVO;
 import com.hc.mapper.CountryMapper;
 import com.hc.service.CountryService;
-@Service
+import com.hc.translate.CountryTrans;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+@Service("countryService")
 public class CountryServiceImpl implements CountryService{
 
     @Resource
@@ -39,6 +44,13 @@ public class CountryServiceImpl implements CountryService{
     @Override
     public int updateByPrimaryKey(Country record) {
         return countryMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<CountryVO> selectByCityId(Integer cityId) {
+        List<Country> countryList = countryMapper.selectByCityId(cityId);
+        List<CountryVO> countryVOList = CountryTrans.mapper.countryList2CountryVOList(countryList);
+        return countryVOList;
     }
 
 }

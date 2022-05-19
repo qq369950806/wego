@@ -93,4 +93,11 @@
       `status` = #{status,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectByCityId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_country
+    where status =1 and city_id=#{cityId,jdbcType=INTEGER}
+    </select>
 </mapper>

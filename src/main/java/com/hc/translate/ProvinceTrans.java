@@ -11,6 +11,6 @@ import java.util.List;
 public interface ProvinceTrans {
     ProvinceTrans mapper = Mappers.getMapper(ProvinceTrans.class);
 
-    List<ProvinceVO> provinceList2provinceVOList(List<Province> provinceList);
+    List<ProvinceVO> provinceList2ProvinceVOList(List<Province> provinceList);
 
 }

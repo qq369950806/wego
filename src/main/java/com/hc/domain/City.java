@@ -45,8 +45,8 @@ public class City {
     private Integer priority;
 
     /**
-    * 状态：1正常 0 删除
+    * 状态：1可用  2禁止
     */
-    @ApiModelProperty(value="状态：1正常 0 删除")
+    @ApiModelProperty(value="状态：1可用  2禁止")
     private Integer status;
 }

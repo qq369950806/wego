@@ -1,4 +1,4 @@
-package com.hc.domain;
+package com.hc.domain.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -19,7 +19,7 @@ import lombok.ToString;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Country {
+public class CountryVO {
     /**
     * 编号
     */
@@ -31,22 +31,4 @@ public class Country {
     */
     @ApiModelProperty(value="乡镇名")
     private String name;
-
-    /**
-    * 所属城市编号
-    */
-    @ApiModelProperty(value="所属城市编号")
-    private Integer cityId;
-
-    /**
-    * 显示优化级
-    */
-    @ApiModelProperty(value="显示优化级")
-    private Integer priority;
-
-    /**
-    * 状态：1可用  2禁止
-    */
-    @ApiModelProperty(value="状态：1可用  2禁止")
-    private Integer status;
 }

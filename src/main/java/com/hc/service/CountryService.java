@@ -1,8 +1,11 @@
 package com.hc.service;
 
 import com.hc.domain.Country;
-public interface CountryService{
+import com.hc.domain.vo.CountryVO;
 
+import java.util.List;
+
+public interface CountryService{
 
     int deleteByPrimaryKey(Integer id);
 
@@ -16,4 +19,10 @@ public interface CountryService{
 
     int updateByPrimaryKey(Country record);
 
+    /**
+     * 查询指定城市编号下的县区
+     * @param cityId
+     * @return
+     */
+    List<CountryVO> selectByCityId(Integer cityId);
 }
