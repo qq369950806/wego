@@ -66,7 +66,7 @@ public class ReceiveAddrController {
 
     @ApiOperation(value = "添加部门信息", notes = "", httpMethod = "POST")
     @PostMapping
-    public ModelAndView create(ReceiveAddr receiveAddr, HttpServletRequest request, ModelAndView mav) {
+    public String create(ReceiveAddr receiveAddr, HttpServletRequest request) {
         //TODO: 等用户登录功能实现后，需要将下面代码换成如下语句：
         // User user = (User)request.getSession().getAttribute("user");
         //同时删除com.hc.listener.ContextListener.java中的下面两行代码
@@ -78,7 +78,16 @@ public class ReceiveAddrController {
         receiveAddr.setTimes(0);
 
         receiveAddrService.insertSelective(receiveAddr);
-        mav.setViewName("receiveAddr/list/"+user.getId());
+        return "redirect:/receiveAddr/list/"+user.getId();
+    }
+
+
+    @ApiOperation(value = "修改部门信息", notes = "", httpMethod = "PUT")
+    @GetMapping("/openUpdatePage/{receiveAddrId}")
+    public ModelAndView openUpdatePage(@PathVariable("receiveAddrId")Long receiveAddrId, ModelAndView mav) {
+        ReceiveAddr receiveAddr = receiveAddrService.selectByPrimaryKey(receiveAddrId);
+        mav.addObject("receiveAddr",receiveAddr);
+        mav.setViewName("receiveAddr_update");
         return mav;
     }
 

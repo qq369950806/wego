@@ -22,14 +22,14 @@
             <td>详细地址</td>
             <td>邮编</td>
             <td>电话</td>
-            <td></td>
+            <td>操作</td>
         </tr>
         <#assign i=0>
         <#list receiveAddrVOList as receiveAddrVO>
             <#assign i=i+1>
             <tr>
                 <td>
-                    <input type="radio" name="receiceId" value="${receiveAddrVO.id}">
+                    <input type="radio" name="receiceId" value="${receiveAddrVO.id}" <#if i==1>checked</#if>>
                 </td>
                 <td>${i}</td>
                 <td>${receiveAddrVO.receiver}</td>
@@ -39,7 +39,7 @@
                 <td>${receiveAddrVO.addr}</td>
                 <td>${receiveAddrVO.postcode}</td>
                 <td>${receiveAddrVO.tel}</td>
-                <td><#if i==1>默认</#if></td>
+                <td><a href="${request.contextPath}/receiveAddr/openUpdatePage/${receiveAddrVO.id}">修改</a></td>
             </tr>
         </#list>
         <tr>
