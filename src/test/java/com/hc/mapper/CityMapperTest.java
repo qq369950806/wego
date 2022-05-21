@@ -7,10 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.annotation.Resource;
-
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration({"/spring.xml", "/mybatis.xml"})
@@ -18,6 +15,11 @@ class CityMapperTest {
 
     @Resource
     private CityMapper cityMapper;
+
+    @Test
+    void fun(){
+        System.out.println(cityMapper);
+    }
 
     @Test
     void selectByProvinceId() {

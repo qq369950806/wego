@@ -1,11 +1,12 @@
 package com.hc.service.impl;
 
-import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
-import com.hc.mapper.UserMapper;
 import com.hc.domain.User;
+import com.hc.mapper.UserMapper;
 import com.hc.service.UserService;
-@Service
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+@Service("userService")
 public class UserServiceImpl implements UserService{
 
     @Resource

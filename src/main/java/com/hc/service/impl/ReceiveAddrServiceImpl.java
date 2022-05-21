@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service("receiveAddrService")
 public class ReceiveAddrServiceImpl implements ReceiveAddrService{
 
     @Resource

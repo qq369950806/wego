@@ -18,7 +18,7 @@ class ReceiveAddrMapperTest {
 
     @Test
     void selectByUserId() {
-        final List<ReceiveAddr> res = receiveAddrMapper.selectByUserId(192L);
+        final List<ReceiveAddr> res = receiveAddrMapper.selectByUserId(1L);
         res.forEach(System.out::println);
     }
 }

@@ -6,17 +6,26 @@
 </head>
 <body>
 <h2>增加收件地址</h2>
-<select id="provinceSelect">
-    <#list  provinceVOList as provinceVO>
-        <option value="${provinceVO.id}">${provinceVO.name}</option>
-    </#list>
-</select>
-<select id="citySelect">
-    <option value="-1">请选择城市</option>
-</select>
-<select id="countrySelect">
-    <option value="-1">请选择县区</option>
-</select>
+<form action="${request.contextPath}/receiveAddr/" method="post">
+    收件人：<input type="text" name="receiver"> <br>
+    <select id="provinceSelect">
+        <#list  provinceVOList as provinceVO>
+            <option value="${provinceVO.id}">${provinceVO.name}</option>
+        </#list>
+    </select>
+    <select id="citySelect">
+        <option value="-1">请选择城市</option>
+    </select>
+    <select id="countrySelect" name="countryId">
+        <option value="-1">请选择县区</option>
+    </select>
+    <br>
+    详细地址：<input type="text" name="addr"> <br>
+    邮编：<input type="text" name="postcode"> <br>
+    电话：<input type="text" name="tel"> <br>
+    <input type="submit" value="提交">
+</form>
+
 <script src="${request.contextPath}/assets/js/jquery3.6.0.js"></script>
 <script>
     $("#provinceSelect").change(function (){

@@ -11,6 +11,11 @@ public interface ReceiveAddrService{
 
     int insert(ReceiveAddr record);
 
+    /**
+     * 添加用户
+     * @param record
+     * @return
+     */
     int insertSelective(ReceiveAddr record);
 
     ReceiveAddr selectByPrimaryKey(Long id);

@@ -2,6 +2,7 @@ package com.hc.controller;
 
 import com.hc.domain.Province;
 import com.hc.domain.ReceiveAddr;
+import com.hc.domain.User;
 import com.hc.domain.vo.ProvinceVO;
 import com.hc.domain.vo.ReceiveAddrVO;
 import com.hc.service.ProvinceService;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Api(tags = "用户收件地址控制器", value = "用户收件地址")
@@ -64,9 +66,19 @@ public class ReceiveAddrController {
 
     @ApiOperation(value = "添加部门信息", notes = "", httpMethod = "POST")
     @PostMapping
-    public ModelAndView create(@RequestBody ReceiveAddr receiveAddr, ModelAndView mav) {
-        receiveAddrService.insert(receiveAddr);
-        mav.setViewName("receiveAddr_list");
+    public ModelAndView create(ReceiveAddr receiveAddr, HttpServletRequest request, ModelAndView mav) {
+        //TODO: 等用户登录功能实现后，需要将下面代码换成如下语句：
+        // User user = (User)request.getSession().getAttribute("user");
+        //同时删除com.hc.listener.ContextListener.java中的下面两行代码
+        //User user = User.builder().id(1L).nickname("张三").build();
+        //sce.getServletContext().setAttribute("user",user);
+
+        User user = (User) request.getServletContext().getAttribute("user");
+        receiveAddr.setUserId(user.getId());
+        receiveAddr.setTimes(0);
+
+        receiveAddrService.insertSelective(receiveAddr);
+        mav.setViewName("receiveAddr/list/"+user.getId());
         return mav;
     }
 

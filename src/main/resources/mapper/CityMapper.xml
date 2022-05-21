@@ -100,6 +100,7 @@
         select
         <include refid="Base_Column_List"/>
         from tb_city
-        where status = 1 and province_id = #{provinceId,jdbcType=INTEGER}
+        where status = 1
+          and province_id = #{provinceId,jdbcType=INTEGER}
     </select>
 </mapper>
