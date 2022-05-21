@@ -40,6 +40,7 @@
                 <td>${receiveAddrVO.postcode}</td>
                 <td>${receiveAddrVO.tel}</td>
                 <td><a href="${request.contextPath}/receiveAddr/openUpdatePage/${receiveAddrVO.id}">修改</a></td>
+                <td><a href="javascript:void(0);" onclick="javascript:return deleteById(${receiveAddrVO.id})">删除</a></td>
             </tr>
         </#list>
         <tr>
@@ -49,5 +50,17 @@
         </tr>
     </table>
 </form>
+
+<script src="${request.contextPath}/assets/js/jquery3.6.0.js"></script>
+<script>
+    function deleteById() {
+        let msg = "您真的确定要删除吗？\n\n请确认！";
+        if (confirm(msg)==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
 </body>
 </html>

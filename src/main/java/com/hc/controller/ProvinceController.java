@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -50,6 +52,13 @@ public class ProvinceController {
         mav.addObject("province", province);
         mav.setViewName("province_details");
         return mav;
+    }
+
+    @ResponseBody
+    @GetMapping("/list")
+    public List<Province> list() {
+        List<Province> provinceList = provinceService.selectList();
+        return provinceList;
     }
 
     //@GetMapping("/list")

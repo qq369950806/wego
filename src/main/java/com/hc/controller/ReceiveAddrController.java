@@ -1,10 +1,14 @@
 package com.hc.controller;
 
+import com.hc.domain.City;
+import com.hc.domain.Country;
 import com.hc.domain.Province;
 import com.hc.domain.ReceiveAddr;
 import com.hc.domain.User;
 import com.hc.domain.vo.ProvinceVO;
 import com.hc.domain.vo.ReceiveAddrVO;
+import com.hc.service.CityService;
+import com.hc.service.CountryService;
 import com.hc.service.ProvinceService;
 import com.hc.service.ReceiveAddrService;
 import com.hc.translate.ProvinceTrans;
@@ -24,6 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 @Api(tags = "用户收件地址控制器", value = "用户收件地址")
 @Slf4j
@@ -35,6 +40,10 @@ public class ReceiveAddrController {
 
     @Resource
     private ProvinceService provinceService;
+    @Resource
+    private CityService cityService;
+    @Resource
+    private CountryService countryService;
 
     @ApiOperation(value = "获取部门信息列表", notes = "", httpMethod = "GET")
     @GetMapping("/list/{userId}")
@@ -66,7 +75,7 @@ public class ReceiveAddrController {
 
     @ApiOperation(value = "添加部门信息", notes = "", httpMethod = "POST")
     @PostMapping
-    public String create(ReceiveAddr receiveAddr, HttpServletRequest request) {
+    public String add(ReceiveAddr receiveAddr, HttpServletRequest request) {
         //TODO: 等用户登录功能实现后，需要将下面代码换成如下语句：
         // User user = (User)request.getSession().getAttribute("user");
         //同时删除com.hc.listener.ContextListener.java中的下面两行代码
@@ -86,6 +95,22 @@ public class ReceiveAddrController {
     @GetMapping("/openUpdatePage/{receiveAddrId}")
     public ModelAndView openUpdatePage(@PathVariable("receiveAddrId")Long receiveAddrId, ModelAndView mav) {
         ReceiveAddr receiveAddr = receiveAddrService.selectByPrimaryKey(receiveAddrId);
+
+        Integer countryId = receiveAddr.getCountryId();
+        Country country = countryService.selectByPrimaryKey(countryId);
+        String countryName = country.getName();
+
+        Integer cityId = country.getCityId();
+        City city = cityService.selectByPrimaryKey(cityId);
+        String cityName = city.getName();
+
+        Integer provinceId = city.getProvinceId();
+        String provinceName = provinceService.selectByPrimaryKey(provinceId).getName();
+
+        //之所以将Map的key转换成字符串，是因为Freemarker不支持key为数字类型的Map的解析
+        mav.addObject("province",Map.of(provinceId+"",provinceName));
+        mav.addObject("city", Map.of(cityId+"",cityName));
+        mav.addObject("country",Map.of(countryId+"",countryName));
         mav.addObject("receiveAddr",receiveAddr);
         mav.setViewName("receiveAddr_update");
         return mav;
